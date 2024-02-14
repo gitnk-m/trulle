@@ -1,0 +1,113 @@
+.footer{
+    width: 70%;
+    margin-left: 15%;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;  
+}
+.footer h1{
+    font-family: var(--fontSub);
+    font-size: var(--sizeSub);
+    font-weight: var(--weightSub);
+    color: var(--black);
+    margin-bottom: 3%;  
+}
+.footer_div{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: row;  
+    gap: 5%;
+}
+.footer_container{
+    width: 35%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+
+    position: relative;
+}
+.container_1{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    margin-bottom: 10%;
+}
+.container_1 h3{
+    font-family: var(--fontH5);
+    font-size: var(--sizeH5);
+    font-weight: var(--weightH5);
+    color: var(--black);
+    margin-bottom: 5%;   
+}
+.container_1 p{
+    font-family: var(--fontP1);
+    font-size: var(--sizeP1);
+    font-weight: var(--weightP1);
+    color: var(--black);
+    margin-bottom: 5%;   
+}
+.footer_menu{
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    padding-left: 50%;
+}
+.footer_menu h3{
+    font-family: var(--fontH5);
+    font-size: var(--sizeH5);
+    font-weight: var(--weightH5);
+    color: var(--black);
+    margin-bottom: 10%;   
+}
+.footer_width_social{
+    width: 40%;
+}
+.footer_social{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    flex-direction: column;
+    padding-left: 30%;
+
+    /* position: absolute;
+    bottom: -100%; */
+}
+.footer_social h3{
+    font-family: var(--fontH5);
+    font-size: var(--sizeH5);
+    font-weight: var(--weightH5);
+    color: var(--black);
+    margin-bottom: 10%;   
+}
+.social_icons{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-direction: row;
+}
+.icon{
+    width: 18%;
+}
+.icon img{
+    width: 100%;
+    object-fit: contain;
+    object-position: center;
+}
+.footer_image_container{
+    width: 100vw;
+}
+.footer_image{
+    width: 100%;
+    object-fit: contain;
+    object-position: center;
+}

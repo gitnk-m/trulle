@@ -1,0 +1,16 @@
+.marquee {
+    overflow: hidden;
+    white-space: nowrap;
+    animation: marqueeScroll linear infinite forwards;
+    /* animation-duration: var(--animation, 5s)ms; */
+}
+
+@keyframes marqueeScroll {
+0% {
+    transform: translateX(20%);
+    }
+100% {
+    transform: translateX(-20%);
+    }
+}
+  

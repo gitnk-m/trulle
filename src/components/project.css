@@ -1,0 +1,134 @@
+.project_container{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    height: auto;
+    transition: 1s ease;
+}
+.project_image{
+    width: 50%;
+    aspect-ratio: 1/1;
+    margin-right: 5%;
+}
+.project_image img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+}
+.project_description{
+    width: 40%;
+    margin-right: 5%;
+}
+.project_description h3{
+    font-family: var(--fontH4);
+    font-size: var(--sizeH4);
+    font-weight: var(--weightH4);
+    color: var(--black);
+    margin-bottom: 10%;
+}
+.project_description p{
+    font-family: var(--fontP1);
+    font-size: var(--sizeP1);
+    font-weight: var(--weightP1);
+    color: var(--black);
+    margin-bottom: 10%;
+
+    text-align: justify;
+}
+.project_btn_colour{
+    background-color: var(--peach);
+    color: var(--white);
+    border: none;
+    padding: .5rem 1.5rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.project_btn_colour img{
+    margin-left: 1rem;
+}
+.arrow_btn_container{
+    width: 15%;
+    position: absolute;
+    right: -20%;
+    top: 50%;
+    transform: translateY(-25%);
+}
+.arrow_btn{
+    width: 60%;
+    aspect-ratio: 1/1;
+    margin-bottom: 20%;
+    background-color: var(--gray);
+    border-radius: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.arrow_btn img{
+    width: 60%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+}
+.project_side{
+    writing-mode: vertical-lr;
+    text-orientation: mixed;
+    transform: rotate(180deg);
+    
+    position: absolute;
+    bottom: 9%;
+    left: -12%;
+}
+.project_side h1{
+    font-size: var(--sizeLoad);
+    font-family: var(--fontTitle);
+    font-weight: var(--weightTitle);
+
+    color: black;
+    -webkit-text-fill-color: white; 
+    -webkit-text-stroke-width: 1.5px;
+    -webkit-text-stroke-color: black;
+}
+
+@keyframes upProject {
+    0%{
+        transform: translateY(0);
+        opacity: 1;
+    }
+    33%{
+        transform: translateY(-200px);
+        opacity: 0;
+    }
+    66%{
+        transform: translateY(200px);
+        opacity: 0;
+    }
+    100%{
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes downProject {
+    0%{
+        transform: translateY(0);
+        opacity: 1;
+    }
+    33%{
+        transform: translateY(200px);
+        opacity: 0;
+    }
+    66%{
+        transform: translateY(-200px);
+        opacity: 0;
+    }
+    100%{
+        transform: translateY(0);
+        opacity: 1;
+    }
+}

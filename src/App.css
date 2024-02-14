@@ -1,0 +1,390 @@
+/* .mainLoading{
+    width: 100dvw;
+    height: 100dvh;
+    background-color: var(--black);
+    position: fixed;
+    z-index: 5;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    top: 0;
+}
+.sloganContainer{
+    position: relative;
+    width: 50%;
+    height: 8rem;
+    display: flex;
+}
+.circle{
+    width: 6.2rem;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    background-color: var(--peach);
+}
+.aniCircle{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: -3rem;
+    animation: circleMove 3s ease 3;
+}
+@keyframes circleMove {
+    0%{
+        right: -3rem;
+    }
+    50%{
+        right: -6.25rem;
+    }
+    100%{
+        right: -3rem;
+    }
+}
+
+.slogantext{
+    position: absolute;
+    overflow-x: hidden;
+    width: 100%;
+    height: 100%;
+}
+.slogan{
+    color: var(--white);
+    font-size: var(--sizeLoad);
+    font-family: var(--fontLoad);
+    font-weight: var(--weightLoad);
+    padding-right: 1rem;
+    position: absolute;
+    right: -100%;
+    animation: move 3s ease 3;
+}
+@keyframes move {
+    0%{
+        right: -100%;
+    }
+    50%{
+        right: 0;
+    }
+    100%{
+        right: -100%;
+    }
+}
+.slogan::before{
+    content: "";
+    font-size: var(--sizeLoad);
+    font-family: var(--fontLoad);
+    font-weight: var(--weightLoad);
+    animation: sloganLoad 9s ease-in-out;
+}
+@keyframes sloganLoad {
+    0%{
+        content: "Define";        
+    }
+    50%{
+        content: "Surpass";
+    }
+    90%{
+        content: "Fly";
+    }
+    100%{
+        content: "Fly";
+    }
+} */
+
+.mainLoading{
+    width: 100dvw;
+    height: 100dvh;
+    background-color: var(--black);
+    position: fixed;
+    z-index: 5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.sloganContainer{
+    /* width: 100%; */
+    height: 8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+}
+.circle{
+    width: 6.2rem;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    background-color: var(--peach);
+
+    position: absolute;
+    right: -3.25rem;
+}
+.circleContainer{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: moveTest 3s ease 3 forwards;
+}
+.slogantext{
+    overflow-x: hidden;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: moveTest 3s ease 3;
+
+    position: relative;
+}
+@keyframes moveTest {
+    0%{
+        transform: translateX(-50%);
+    }
+    50%{
+        transform: translateX(-0%);
+    }
+    100%{
+        transform: translateX(-50%);
+    }
+}
+.slogan{
+    color: var(--white);
+    font-size: var(--sizeLoad);
+    font-family: var(--fontLoad);
+    font-weight: var(--weightLoad);
+    padding-right: 3.5rem;
+    animation: move 3s ease 3;
+}
+@keyframes move {
+    0%{
+        transform: translateX(100%);
+    }
+    50%{
+        transform: translateX(0%);
+    }
+    100%{
+        transform: translateX(100%);
+    }
+}
+.slogan::before{
+    content: "";
+    font-size: var(--sizeLoad);
+    font-family: var(--fontLoad);
+    font-weight: var(--weightLoad);
+    animation: sloganLoad 9s ease-in-out;
+}
+@keyframes sloganLoad {
+    0%{
+        content: "Define";        
+    }
+    60%{
+        content: "Surpass";
+    }
+    70%{
+        content: "Fly";
+    }
+    100%{
+        content: "Fly";
+    }
+}
+/* .slogantext::after{
+    content: '';
+    width: 6.2rem;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    background-color: var(--peach);
+    position: absolute;
+    right: 0%;
+} */
+
+
+
+
+
+
+
+
+
+
+
+
+
+.loading2{
+    width: 100dvw;
+    height: 100dvh;
+    background-color: var(--black);
+    position: relative;
+    z-index: 4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    /* animation: zmove 5s ease forwards; */
+}
+@keyframes zmove {
+    90%{
+        z-index: 5;
+    }
+    100%{
+        z-index: 0;
+    }
+}
+.hide{
+    display: none;
+}
+.backCircle{
+    width: 4rem;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    background-color: var(--white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.circle2{
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%,-50%);
+}
+.backAni{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* width: 100rem; */
+    /* border-radius: 0; */
+
+    /* animation: backCircle 5s ease forwards; */
+}
+@keyframes backCircle {
+    25%{
+        width: 4rem;
+    }
+    50%{
+        border-radius: 50%;
+    }
+    100%{
+        width: 110rem;
+        border-radius: 0;
+    }
+}
+.cirAni2{
+    /* animation: circle2 5s ease forwards; */
+}
+/* @keyframes circle2 {
+    25%{
+        width: 4rem;
+        top: 50%;
+    }
+    50%{
+        top: 50%;
+    }
+    100%{
+        width: 25rem;
+        top: 90%;
+    }
+} */
+@keyframes circle2 {
+    25%{
+        width: 4rem;
+        right: 50%;
+    }
+    /* 50%{
+        right: 50%;
+    } */
+    100%{
+        width: 25rem;
+        transform: translate(50%,-50%);
+        right: 30%;
+    }
+}
+.newLandText{
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    padding-left: 10rem;
+
+    /* animation: landText 5s ease forwards; */
+}
+@keyframes landText {
+    0%{
+        /* display: none; */
+    }
+    75%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+.newLandText h1{
+    font-family: var(--fontH2);
+    font-size: var(--sizeH2);
+    font-weight: var(--weightH2);
+    line-height: 50px;
+    letter-spacing: -0.05em;
+    text-align: center;
+}
+.newLandText p{
+    font-family: var(--fontP1);
+    font-size: var(--sizeP2);
+    font-weight: var(--weightP1);
+    line-height: 24px;
+    letter-spacing: 0.15em;
+    text-align: center;
+}
+.navDrop{
+    width: 100%;
+    height: 5rem;
+    position: fixed;
+    top: -100%;
+    z-index: 0;
+
+    animation: navDrop 2s ease forwards;
+}
+@keyframes navDrop {
+    0%{
+        z-index: 0;
+    }
+    100%{
+        top: 0%;
+        z-index: 6;
+    }
+}
+
+.follower {
+    pointer-events: none;
+    z-index: 10; 
+  }
+.big{
+    position: fixed;    
+    padding: 70px 70px;
+    border-radius: 70px;
+    /* pointer-events: none; Ensures the follower doesn't interfere with mouse events */
+    pointer-events: none;
+    z-index: 5;
+    transform: translate(-50%,-50%);
+}
+.small{
+    position: fixed;    
+    padding: 8px 8px;
+    border-radius: 10px;
+    /* pointer-events: none; Ensures the follower doesn't interfere with mouse events */
+    pointer-events: none;
+    transform: translate(-50%,-50%);
+}
+.followerDifference{
+    mix-blend-mode: difference;
+}
+.peach{
+    background-color: var(--peach);
+}
+.white{
+    background-color: var(--white);
+}

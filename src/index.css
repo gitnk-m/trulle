@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+:root{
+  --white:#F7F7F7;
+  --black:#181818;
+  --peach:#FF574A;
+  --gray:#E6E6E6;
+  --dark_gray:#555555;
+
+  --sizeLoad:6rem;
+  --fontLoad:'Montserrat', sans-serif;
+  --weightLoad:400;
+
+  --sizeH1:4.5rem;
+  --fontH1:'Poppins', sans-serif;
+  --weightH1:700;
+
+  --sizeH2:3.5rem;
+  --fontH2:'Montserrat', sans-serif;
+  --weightH2:400;
+
+  --sizeH3:2.5rem;
+  --fontH3:'Poppins', sans-serif;
+  --weightH3:700;
+
+  --sizeH4:2rem;
+  --fontH4:'Poppins', sans-serif;
+  --weightH4:700;
+
+  --sizeH5:1.25rem;
+  --fontH5:'Poppins', sans-serif;
+  --weightH5:700;
+
+  --sizeP1:1rem;
+  --fontP1:'Poppins', sans-serif;
+  --weightP1:400;
+
+  --sizeP2:.8rem;
+  --fontP2:'Poppins', sans-serif;
+  --weightP2:400;
+
+  --sizeSub:4rem;
+  --fontSub:'Anton', sans-serif;
+  --weightSub:400;
+
+  --sizeTitle:10.5rem;
+  --fontTitle:'Anton', sans-serif;
+  --weightTitle:400;
+
+  --sizeTeam:2.2rem;
+  --fontTeam:'Anton', sans-serif;
+  --weightTeam:400;
+
+  --sizeAbt:2rem;
+  --fontAbt:'Anton', sans-serif;
+  --weightAbt:400;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  cursor: none;
+}
+#root{
+  width: 100%;
+  height: auto;
+  overflow-x: hidden;
+}

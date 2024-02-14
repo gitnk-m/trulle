@@ -1,0 +1,71 @@
+h1
+h2
+h3
+h4
+h5
+p1 
+p2
+p3
+p4
+tab
+
+/* H1 */
+font-family: Poppins;
+font-size: 72px;
+font-style: normal;
+font-weight: 700;
+line-height: 94%; /* 67.68px */
+
+/* H3 */
+font-family: Poppins;
+font-size: 40px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+
+/* H4 */
+font-family: Poppins;
+font-size: 32px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+
+/* H5 */
+font-family: Poppins;
+font-size: 24px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+
+/* P1 */
+font-family: Poppins;
+font-size: 16px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+
+/* Our Client, WHO WE ARE, OUR EXPERTISE, OUR PROJECTS */
+color: var(--White-Neo, #F7F7F7);
+font-family: Anton;
+font-size: 64px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+
+/* Service in Peace , DESIGN (OUTLINE)*/
+color: var(--Peach, #FF574A);
+leading-trim: both;
+text-edge: cap;
+font-family: Anton;
+font-size: 163px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+
+/* TEAM in Peace */
+color: var(--Peach, #FF574A);
+font-family: Anton;
+font-size: 48px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
