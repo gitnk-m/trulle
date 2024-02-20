@@ -7,9 +7,10 @@
     align-items: flex-start;
     flex-direction: column;  
 }
+
 .footer h1{
-    font-family: var(--fontSub);
-    font-size: var(--sizeSub);
+    font-family: var(--fontH1);
+    font-size: var(--sizeH2);
     font-weight: var(--weightSub);
     color: var(--black);
     margin-bottom: 3%;  
@@ -31,26 +32,29 @@
 
     position: relative;
 }
+.footerLogo{
+    margin-bottom: 1rem;
+}
 .container_1{
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
     flex-direction: column;
-    margin-bottom: 10%;
+    margin-bottom: 1rem;
 }
 .container_1 h3{
-    font-family: var(--fontH5);
+    font-family: var(--fontH1);
     font-size: var(--sizeH5);
     font-weight: var(--weightH5);
     color: var(--black);
-    margin-bottom: 5%;   
+    /* margin-bottom: 1rem;    */
 }
 .container_1 p{
-    font-family: var(--fontP1);
-    font-size: var(--sizeP1);
+    font-family: var(--fontP2);
+    font-size: var(--sizeP2);
     font-weight: var(--weightP1);
     color: var(--black);
-    margin-bottom: 5%;   
+    /* margin-bottom: 1rem;    */
 }
 .footer_menu{
     width: 100%;
@@ -65,7 +69,7 @@
     font-size: var(--sizeH5);
     font-weight: var(--weightH5);
     color: var(--black);
-    margin-bottom: 10%;   
+    margin-bottom: 1.5rem;   
 }
 .footer_width_social{
     width: 40%;

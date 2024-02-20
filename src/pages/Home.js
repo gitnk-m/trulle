@@ -205,6 +205,8 @@ export default function Home(){
             setNav(true)
         }
     },[checkLoad])
+
+
     return(
         <>
         {checkLoad?null:
@@ -296,11 +298,11 @@ export default function Home(){
                 </div>
             </div> */}
             <div className='home_clients' onMouseEnter={()=>setFollowerClass('followerDifference white big')} onMouseLeave={()=>setFollowerClass('follower small peach')}>
-                <div className='home_arc_top'>
+                <div className={nav?'home_arc_top_load blackMove':'home_arc_top_load'}>
                     {/* <svg xmlns="http://www.w3.org/2000/svg" width="1920" height="754" viewBox="0 0 1920 754" fill="none">
                         <path d="M1920 48.2117V753.5H0V48.2117C303.082 16.8861 625.56 0 960 0C1294.44 0 1616.92 16.8861 1920 48.2117Z" fill="#181818"/>
                     </svg> */}
-                    {/* <img src='./images/top.png'/> */}
+                    <img src='./images/top.png'/>
                 </div>
 
                 <div className='home_client_container'>
@@ -308,96 +310,88 @@ export default function Home(){
                     <div className='slide_container'>
                         <div className='slider'>
                             <Marquee 
-                                children={<img src='./images/slide-1.png'/>} 
+                                children={<img src='./images/strip1.png'/>} 
                                 speed={'15000ms'}
                                 type={'strip'}/>                                
                         </div>
                         <div className='slider'>
                             <Marquee 
-                                children={<img src='./images/slide-2.png'/>} 
-                                speed={'12000ms'}
+                                children={<img src='./images/strip2.png'/>} 
+                                speed={'10000ms'}
                                 type={'strip'}/>
                         </div>
                         <div className='slider'>
                             <Marquee 
-                                children={<img src='./images/slide-3.png'/>} 
+                                children={<img src='./images/strip3.png'/>} 
                                 speed={'16000ms'}
                                 type={'strip'}/>
                         </div>
-                        <div className='slider'>
-                            <Marquee 
-                                children={<img src='./images/slide-1.png'/>} 
-                                speed={'10000ms'}
-                                type={'strip'}/>  
-                        </div>
-                        <div className='slider'>
-                            <Marquee 
-                                children={<img src='./images/slide-2.png'/>} 
-                                speed={'11000ms'}
-                                type={'strip'}/>
-                        </div>
-                        <div className='slider'>
-                            <Marquee 
-                                children={<img src='./images/slide-3.png'/>} 
-                                speed={'13000ms'}
-                                type={'strip'}/>
-                        </div>
-                        
-                    </div>                    
+                    </div>      
+                    <div className='smaller'>
+                        <p>The world is smaller...</p>
+                    </div>              
                 </div>
                 
                 <div className='home_arc_bottom'>
                     {/* <svg xmlns="http://www.w3.org/2000/svg" width="1920" height="658" viewBox="0 0 1920 658" fill="none">
                         <path d="M0 0H1920V609.178C1616.92 640.503 1294.44 657.39 960 657.39C625.56 657.39 303.082 640.518 0 609.178V0Z" fill="#181818"/>
                     </svg> */}
+                    <img src='./images/top.png'/>
                 </div>
             </div>
-            <div id='service' className='home_who'>
-                <Fade direction='up' duration={1000}>
+            <div className='home_who'>
+                {/* <Fade direction='up' duration={1000}>
                 <h1 >WHO WE ARE</h1>
-                </Fade>
-                <Fade direction='up' duration={1000}>
+                </Fade> */}
+                <h2>Good Engagement, <br/>Brings Great Conversions</h2>
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean dictum blandit consectetur. 
-                    Nunc erat lectus, imperdiet at nisi id, congue tempor sapien. Ut id volutpat lacus. 
-                    Fusce blandit massa tortor, non commodo eros sagittis fringilla. 
-                    Morbi efficitur fermentum maximus. Aliquam a massa est. Morbi nec neque hendrerit, 
-                    laoreet metus non, elementum dolor. Aliquam erat volutpat. Phasellus ultrices suscipit aliquam. 
-                    Duis scelerisque lacus non erat placerat feugiat. Cras non tellus maximus, auctor diam eu, tempus felis. 
-                    Vestibulum enim ipsum, vulputate sit amet lacus vel, luctus malesuada enim.
+                At Trulle, we understand the importance of engaging user experiences in driving conversions. 
+                From mobile apps to websites and e-commerce platforms, we specialize in crafting solutions that captivate users and drive action. 
+                With our expertise in enterprise software and brand design, we help businesses streamline operations and create a strong visual identity that resonates with customers. 
+                Let's work together to turn engagement into conversions. Contact us today!
                 </p>
-                </Fade>
             </div>
-            <div className='home_expertise'>
-                <h1>OUR EXPERTISE</h1>
+            <div id='service' className='home_expertise'>
+                <h2 className='home_expertise_title'>OUR EXPERTISE</h2>
                 <div className='home_expertise_container'>
-                    <div className='expert_container'>
+                    <div className='expert_container_home peach1'>
                         <h2>DESIGN</h2>
-                        <p>
-                            User Experience<br/>
-                            User interface<br/>
-                            Printable<br/>
-                            SMM Content
-                        </p>
+                        <div className='home_expert_points'>
+                            <p>
+                                User Experience<br/>
+                                User interface
+                            </p>
+                        </div>
                     </div>
-                    <div className='expert_container'>
+                    <div className='expert_container_home peach2'>
                         <h2>DEVELOPMENT</h2>
-                        <p>
-                            Web Development<br/>
-                            E - Commerce Site<br/>
-                            Applications
-                        </p>
+                        <div className='home_expert_points'>
+                            <p>
+                                Web Development<br/>
+                                E - Commerce Site<br/>
+                                Applications
+                            </p>
+                        </div>
                     </div>
-                    <div className='expert_container'>
+                    <div className='expert_container_home peach3'>
                         <h2>BRANDING</h2>
-                        <p>
-                            Logo<br/>
-                            Brand Touch Point<br/>
-                            Style Sheets<br/>
-                            Franchise Design
-                        </p>
+                        <div className='home_expert_points'>
+                            <p>
+                                Logo<br/>
+                                Brand Touch Point<br/>
+                                Style Sheets
+                            </p>
+                        </div>
                     </div>
                 </div>
+                <p className='home_expertise_des'>
+                    At Trulle, we're passionate about crafting seamless user experiences (UX) and captivating user interfaces (UI) 
+                    that leave a lasting impression. Our expertise spans mobile app development, dynamic website creation, e-commerce platforms, 
+                    and enterprise software solutions. From streamlining business operations with ERP systems to designing custom applications, 
+                    we ensure efficiency and informed decision-making. Our brand design services extend beyond logos, encompassing comprehensive brand guidelines for a consistent visual identity. 
+                    With a focus on expertise, innovation, collaboration, and results, Trulle is your trusted partner in driving digital success. 
+                    Let's build something amazing together – get in touch with us today!
+                </p>
             </div>
             <div className='service_scroll' onMouseEnter={()=>setFollowerClass('followerDifference big peach')} onMouseLeave={()=>setFollowerClass('follower small peach')}>
                 <div className='slider'>
@@ -412,14 +406,14 @@ export default function Home(){
                 </div>
             </div>
             <div id='portfolio' className='home_project'>
-                <h1 >OUR PROJECTS</h1>
+                <h1 className='home_project_title'>OUR PROJECTS</h1>
                 <Project 
                     projects={projects}
                 />                
             </div>
             <div className='home_testimonial'>
                 <div className='testrow1'>
-                    <h1>TESTIMONIAL</h1>
+                    <h1 className='home_testimonial_title'>TESTIMONIAL</h1>
                     <div className='testimonial_keys'>
                         <div className='home__test_keys' onClick={preHomeTest}>
                             <img src='./images/left.png'/>
@@ -445,21 +439,23 @@ export default function Home(){
                 </div>                
             </div>
             <div id='about' className='home_layer2'>
+                <div className='home_arc_top'>
+                    <img src='./images/top.png'/>
+                </div>
                 <div className='home_workstyle'>
-                    <h1>WORKING STYLE</h1>
+                    <h1 className='home_workstyle_title'>Our Approach</h1>
+                    <div className='workStyle_image'>
+                        <img src='./images/homeStyle.png' alt='Home Style'/>
+                    </div>
+                    <h2 className='home_brand_title'>Our Work Style</h2>
                     <p className='paragraph'>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean dictum blandit consectetur. 
-                        Nunc erat lectus, imperdiet at nisi id, congue tempor sapien. Ut id volutpat lacus. 
-                        Fusce blandit massa tortor, non commodo eros sagittis fringilla. Morbi efficitur fermentum maximus. 
-                        Aliquam a massa est. Morbi nec neque hendrerit, laoreet metus non, elementum dolor. Aliquam erat volutpat. 
-                        Phasellus ultrices suscipit aliquam. Duis scelerisque lacus non erat placerat feugiat. 
-                        Cras non tellus maximus, auctor diam eu, tempus felis. Vestibulum enim ipsum, vulputate sit amet lacus vel, luctus malesuada enim.
-                    </p>
-                    <p className='list'>
-                        Aglie<br/>
-                        Working Style<br/>
-                        Working Style<br/>
-                        Working Style
+                    "At Trulle, we believe in the power of collaboration and understanding the unique ambitionsdriving each project. 
+                    We initiate every venture by immersing ourselves in your world—graspingnot just the outlined objectives but diving deeper into your aspirations, 
+                    challenges, and broadervision. Through in-depth discussions and meticulous analysis, we dissect the intricacies of yourgoals, 
+                    ensuring a thorough understanding of what success truly means to you.This immersive approach allows us to craft strategies that are not just aligned but finelytailored to surpass your expectations. 
+                    We amalgamate your aspirations with our expertise,fusing innovative thinking with a strategic mindset to shape a roadmap that leads to unparalleled outcomes. 
+                    Our portfolio of success stories stands as a testament to our unwaveringdedication to delivering nothing short of excellence. 
+                    Each triumph is a reflection of our commitment to turning your aspirations into a reality that exceeds even the loftiest of goals."
                     </p>
                 </div>
                 <div className='home_team'>
@@ -499,6 +495,9 @@ export default function Home(){
                             <p className='team_name'>Karthikeyan T</p>
                         </div>
                     </div>
+                </div>
+                <div className='home_arc_bottom'>
+                    <img src='./images/top.png'/>
                 </div>
             </div>
             <div id='contact' className='home_talk'>

@@ -3,9 +3,12 @@ export default function Footer (){
     return(
         <>
             <div className='footer'>
-                <h1>CONTACT US</h1>
+                <h1>Contact Us</h1>
                 <div className='footer_div'>
                     <div className='footer_container'>
+                        <div className='footerLogo'>
+                            <img src='./images/navLogo.png'></img>
+                        </div>
                         <div className='container_1'>
                             <h3>Address</h3>
                             <p>
@@ -52,9 +55,9 @@ export default function Footer (){
                     </div>
                 </div>        
             </div>
-            <div className='footer_image_container'>
+            {/* <div className='footer_image_container'>
                 <img src='./images/footer_image.png' className='footer_image'/>
-            </div>
+            </div> */}
         </>
     )
 }

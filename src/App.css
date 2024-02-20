@@ -264,9 +264,14 @@
     50%{
         border-radius: 50%;
     }
+    99%{
+        opacity: 1;
+    }
     100%{
         width: 110rem;
         border-radius: 0;
+        opacity: 0;
+        display: none;
     }
 }
 .cirAni2{
@@ -387,4 +392,15 @@
 }
 .white{
     background-color: var(--white);
+}
+.blackMove{
+    animation: moveBlack 2s ease forwards;
+}
+@keyframes moveBlack {
+    0%{
+        top: 0vh;
+    }    
+    100%{
+        top: -7.5vh;
+    }
 }
