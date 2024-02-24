@@ -5,7 +5,9 @@ import Testimonial from '../components/testimonial';
 import Footer from '../components/footer';
 import { useState, useEffect, useRef  } from 'react';
 import NavWeb from '../components/navWeb';
+import NavMob from '../components/navmob';
 import { Fade } from 'react-awesome-reveal';
+import {motion, useScroll} from "framer-motion";
 
 import MouseFollower from "mouse-follower";
 import gsap from "gsap";
@@ -71,6 +73,7 @@ export default function Home(){
     useEffect(()=>{
         const timer = setTimeout(() => {
         sessionStorage.setItem('loading',true)
+        // sessionStorage.setItem('loading',false)
         setNav(true)
         }, 13500);
 
@@ -128,8 +131,8 @@ export default function Home(){
 //  Home Projects
     const projects =[
         {
-            project_image:'./images/client-1.png',
-            project_title:'Appl Brand Design',
+            project_image:'./images/projects/appl.png',
+            project_title:'Appl Solar App',
             project_content:`Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean dictum blandit consectetur. 
             Nunc erat lectus, imperdiet at nisi id, congue tempor sapien. Ut id volutpat lacus. 
             Fusce blandit massa tortor, non commodo eros sagittis fringilla. 
@@ -137,8 +140,44 @@ export default function Home(){
             laoreet metus non, elementum dolor.`,
             project_for:'DEVELOPMENT'
         },{
-            project_image:'./images/client-1.png',
-            project_title:'Veado Brand Design',
+            project_image:'./images/projects/evergreen.png',
+            project_title:'EverGreen Safety Website',
+            project_content:`Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean dictum blandit consectetur. 
+            Nunc erat lectus, imperdiet at nisi id, congue tempor sapien. Ut id volutpat lacus. 
+            Fusce blandit massa tortor, non commodo eros sagittis fringilla. 
+            Morbi efficitur fermentum maximus. Aliquam a massa est. Morbi nec neque hendrerit, 
+            laoreet metus non, elementum dolor.`,
+            project_for:'DEVELOPMENT'
+        },{
+            project_image:'./images/projects/flicker.png',
+            project_title:'Flicker Brand Design',
+            project_content:`Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean dictum blandit consectetur. 
+            Nunc erat lectus, imperdiet at nisi id, congue tempor sapien. Ut id volutpat lacus. 
+            Fusce blandit massa tortor, non commodo eros sagittis fringilla. 
+            Morbi efficitur fermentum maximus. Aliquam a massa est. Morbi nec neque hendrerit, 
+            laoreet metus non, elementum dolor.`,
+            project_for:'DESIGN'
+        },{
+            project_image:'./images/projects/gt.png',
+            project_title:'Goodtime Service App',
+            project_content:`Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean dictum blandit consectetur. 
+            Nunc erat lectus, imperdiet at nisi id, congue tempor sapien. Ut id volutpat lacus. 
+            Fusce blandit massa tortor, non commodo eros sagittis fringilla. 
+            Morbi efficitur fermentum maximus. Aliquam a massa est. Morbi nec neque hendrerit, 
+            laoreet metus non, elementum dolor.`,
+            project_for:'DEVELOPMENT'
+        },{
+            project_image:'./images/projects/nttf.png',
+            project_title:'NTTF Creative Design',
+            project_content:`Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean dictum blandit consectetur. 
+            Nunc erat lectus, imperdiet at nisi id, congue tempor sapien. Ut id volutpat lacus. 
+            Fusce blandit massa tortor, non commodo eros sagittis fringilla. 
+            Morbi efficitur fermentum maximus. Aliquam a massa est. Morbi nec neque hendrerit, 
+            laoreet metus non, elementum dolor.`,
+            project_for:'DESIGN'
+        },{
+            project_image:'./images/projects/tned.png',
+            project_title:'Govt Hr Sec Vocational Book Design',
             project_content:`Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean dictum blandit consectetur. 
             Nunc erat lectus, imperdiet at nisi id, congue tempor sapien. Ut id volutpat lacus. 
             Fusce blandit massa tortor, non commodo eros sagittis fringilla. 
@@ -186,13 +225,13 @@ export default function Home(){
     const [testSlideMove, setTestSlideMove] = useState('translateX(0px)')
     const preHomeTest =()=>{
         if(homeTestIndex>0){
-            setTestSlideMove(`translateX(-${360*(homeTestIndex-1)}px)`)
+            setTestSlideMove(`translateX(-${340*(homeTestIndex-1)}px)`)
             setHomeTestIndex(homeTestIndex-1)
         }
     }
     const nextHomeTest =()=>{
-        if(homeTestIndex<testimonials.length-3){
-            setTestSlideMove(`translateX(-${360*(homeTestIndex+1)}px)`)
+        if(homeTestIndex<testimonials.length-1){
+            setTestSlideMove(`translateX(-${340*(homeTestIndex+1)}px)`)
             setHomeTestIndex(homeTestIndex+1)
         }
     }
@@ -206,6 +245,43 @@ export default function Home(){
         }
     },[checkLoad])
 
+
+//  Framer Animation
+    const ref = useRef(null)
+    const {scrollYProgress} = useScroll({
+        target:ref,
+        offset:["0 1.33", "1.45 1"]
+    })
+    useEffect(()=>{
+        console.log(scrollYProgress)
+    },[])
+
+
+//  NavBar
+    const [navbar, setNavbar] = useState(<NavWeb/>)
+    const navSelect = () =>{
+        if(window.innerWidth<768){
+            setNavbar(<NavMob/>)
+        }else{
+            setNavbar(<NavWeb/>)
+        }
+    }
+    useEffect(() => {
+    if (window.innerWidth<768){
+        setNavbar(<NavMob/>)
+    }else{
+        setNavbar(<NavWeb/>)
+    }
+    window.addEventListener('resize', navSelect);
+    window.scrollTo(0, 0);
+    return () => {
+        window.scrollTo(0, 0);
+        window.removeEventListener('resize', navSelect);
+    };
+    }, []);
+    
+// touch check
+    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0;
 
     return(
         <>
@@ -236,17 +312,32 @@ export default function Home(){
                 </div>
             </div>
         </div> */}
-        {nav?<div className='navDrop' style={{animation:'navDrop 2s ease forwards'}}><NavWeb/></div>:null}
-        <div id='home' style={checkLoad?{zIndex: 0}:{animation:'zmove 5s ease forwards'}} className={loading?'loading2 hide':'loading2'}>
-            <div className='backCircle backAni' style={checkLoad?{width: '110rem',borderRadius: 0}:{animation:'backCircle 5s ease forwards'}}>
+        {nav?<div className='navDrop' style={window.innerWidth<768?null:{animation:'navDrop 2s ease forwards'}}>{navbar}</div>:null}
+        <div id='home' style={checkLoad?{zIndex: 0}:{animation:'zmove 5s ease forwards'}} className={loading?'loading2 hide':'loading2'}>        
+            <div className='backCircle backAni' style={checkLoad?{width: '100dvw', height:'100dvh',borderRadius: 0}:{animation:'backCircle 5s ease forwards'}}>
                 <div className='newLandText' style={checkLoad?{opacity:1}:{animation:'landText 5s ease forwards'}}>
-                    <h1>Your idea Comes Alive</h1>
+                    <h1>YOUR IDEA COMES ALIVE</h1>
                     <p>We create tailored Software solution for you business to hit the mark</p>
+                    <button className='btn home_land_btn'><a href='#contact'>Let's Talk <img src='./images/button_arrow.png'></img></a></button>
                 </div>
-                <div onMouseEnter={()=>setFollowerClass('followerDifference big peach')} onMouseLeave={()=>setFollowerClass('follower small peach')}  className='circle circle2 cirAni2' style={checkLoad?{width: '25rem',transform: 'translate(50%,-50%)',right: '30%'}:{animation:'circle2 5s ease forwards'}}></div>
+                <div onMouseEnter={()=>setFollowerClass('followerDifference big peach')} onMouseLeave={()=>setFollowerClass('follower small peach')}  className={checkLoad?'circle circle2 cirAni2 circle2landing':'circle circle2 cirAni2'} style={checkLoad?null:{animation:'circle2 5s ease forwards'}}>
+                    <div className={nav?'home_landing_slide_cont':"home_landing_slider_dis"}>
+                        <div className='home_landing_slider'>
+                            <div className='home_landing_slide'>
+                                <img src='./images/ss/kasap.png' alt='Model'/>
+                            </div>
+                            <div className='home_landing_slide'>
+                                <img src='./images/ss/vedic.png' alt='Model'/>
+                            </div>
+                            <div className='home_landing_slide'>
+                                <img src='./images/ss/hedge.png' alt='Model'/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>        
-        <div className={loading?'home_wrapper hide':'home_wrapper'}>            
+        <div className={nav?'home_wrapper':'home_wrapper  hide'}>            
             {/* <div className='home_landing'>
                 <div className='landing_content'>
                     <h1>Your Idea Comes <span>Alive</span></h1>
@@ -298,44 +389,36 @@ export default function Home(){
                 </div>
             </div> */}
             <div className='home_clients' onMouseEnter={()=>setFollowerClass('followerDifference white big')} onMouseLeave={()=>setFollowerClass('follower small peach')}>
-                <div className={nav?'home_arc_top_load blackMove':'home_arc_top_load'}>
-                    {/* <svg xmlns="http://www.w3.org/2000/svg" width="1920" height="754" viewBox="0 0 1920 754" fill="none">
-                        <path d="M1920 48.2117V753.5H0V48.2117C303.082 16.8861 625.56 0 960 0C1294.44 0 1616.92 16.8861 1920 48.2117Z" fill="#181818"/>
-                    </svg> */}
+                <div className={nav?'home_arc_top_load blackMove':'home_arc_top_load'}>                    
                     <img src='./images/top.png'/>
                 </div>
-
                 <div className='home_client_container'>
                     <h1>Our Clients</h1>
                     <div className='slide_container'>
-                        <div className='slider'>
+                        <div className='Client_slider'>
                             <Marquee 
                                 children={<img src='./images/strip1.png'/>} 
-                                speed={'15000ms'}
+                                speed={'45000ms'}
                                 type={'strip'}/>                                
                         </div>
-                        <div className='slider'>
+                        <div className='Client_slider'>
                             <Marquee 
                                 children={<img src='./images/strip2.png'/>} 
-                                speed={'10000ms'}
+                                speed={'30000ms'}
                                 type={'strip'}/>
                         </div>
-                        <div className='slider'>
+                        <div className='Client_slider'>
                             <Marquee 
                                 children={<img src='./images/strip3.png'/>} 
-                                speed={'16000ms'}
+                                speed={'15000ms'}
                                 type={'strip'}/>
                         </div>
                     </div>      
                     <div className='smaller'>
                         <p>The world is smaller...</p>
                     </div>              
-                </div>
-                
-                <div className='home_arc_bottom'>
-                    {/* <svg xmlns="http://www.w3.org/2000/svg" width="1920" height="658" viewBox="0 0 1920 658" fill="none">
-                        <path d="M0 0H1920V609.178C1616.92 640.503 1294.44 657.39 960 657.39C625.56 657.39 303.082 640.518 0 609.178V0Z" fill="#181818"/>
-                    </svg> */}
+                </div>                
+                <div className='home_arc_bottom'>                    
                     <img src='./images/top.png'/>
                 </div>
             </div>
@@ -343,26 +426,38 @@ export default function Home(){
                 {/* <Fade direction='up' duration={1000}>
                 <h1 >WHO WE ARE</h1>
                 </Fade> */}
-                <h2>Good Engagement, <br/>Brings Great Conversions</h2>
-                <p>
-                At Trulle, we understand the importance of engaging user experiences in driving conversions. 
-                From mobile apps to websites and e-commerce platforms, we specialize in crafting solutions that captivate users and drive action. 
-                With our expertise in enterprise software and brand design, we help businesses streamline operations and create a strong visual identity that resonates with customers. 
-                Let's work together to turn engagement into conversions. Contact us today!
-                </p>
+                <div className='home_who_contaier'>
+                    <h2>Good Engagement, <br/>Brings Great Conversions</h2>
+                    <p>
+                    At Trulle, we understand the importance of engaging user experiences in driving conversions. 
+                    From mobile apps to websites and e-commerce platforms, we specialize in crafting solutions that captivate users and drive action. 
+                    With our expertise in enterprise software and brand design, we help businesses streamline operations and create a strong visual identity that resonates with customers. 
+                    Let's work together to turn engagement into conversions. Contact us today!
+                    </p>
+                </div>
+                <div className='home_who_image'>
+                   <img src='./images/expert.png' alt='Experts'/>
+                </div>
+                
             </div>
             <div id='service' className='home_expertise'>
-                <h2 className='home_expertise_title'>OUR EXPERTISE</h2>
-                <div className='home_expertise_container'>
-                    <div className='expert_container_home peach1'>
-                        <h2>DESIGN</h2>
+                <h2 className='home_expertise_title'>Our Expertise</h2>
+                {window.innerWidth>768?<div className='home_expertise_container'>
+                    {/* <div className='expert_container_home peach1'> */}
+                    <motion.div 
+                    className='expert_container_home peach1'
+                    initial={{x:200}}
+                    whileInView={{x:0}}
+                    transition={{duration:.5}}
+                    >
+                        <h2>UX UI Design</h2>
                         <div className='home_expert_points'>
                             <p>
                                 User Experience<br/>
                                 User interface
                             </p>
                         </div>
-                    </div>
+                    </motion.div>
                     <div className='expert_container_home peach2'>
                         <h2>DEVELOPMENT</h2>
                         <div className='home_expert_points'>
@@ -373,7 +468,12 @@ export default function Home(){
                             </p>
                         </div>
                     </div>
-                    <div className='expert_container_home peach3'>
+                    <motion.div 
+                    className='expert_container_home peach3'
+                    initial={{x:-200}}
+                    whileInView={{x:0}}
+                    transition={{duration:.5}}
+                    >
                         <h2>BRANDING</h2>
                         <div className='home_expert_points'>
                             <p>
@@ -382,8 +482,29 @@ export default function Home(){
                                 Style Sheets
                             </p>
                         </div>
+                    </motion.div>
+                </div>:<div className='home_expertise_container'>
+                    {/* <div className='expert_container_home peach1'> */}
+                    <motion.div 
+                    className='expert_container_home peach1'
+                    initial={{y:150}}
+                    whileInView={{y:50}}
+                    transition={{duration:.5}}
+                    >
+                        <img src='./images/expertDes.png' alt='Design'/>
+                    </motion.div>
+                    <div className='expert_container_home peach2'>
+                        <img src='./images/expertDev.png' alt='Develop'/>
                     </div>
-                </div>
+                    <motion.div 
+                    className='expert_container_home peach3'
+                    initial={{y:-150}}
+                    whileInView={{y:-50}}
+                    transition={{duration:.5}}
+                    >
+                        <img src='./images/expertBrand.png' alt='Brand'/>
+                    </motion.div>
+                </div>}
                 <p className='home_expertise_des'>
                     At Trulle, we're passionate about crafting seamless user experiences (UX) and captivating user interfaces (UI) 
                     that leave a lasting impression. Our expertise spans mobile app development, dynamic website creation, e-commerce platforms, 
@@ -447,7 +568,7 @@ export default function Home(){
                     <div className='workStyle_image'>
                         <img src='./images/homeStyle.png' alt='Home Style'/>
                     </div>
-                    <h2 className='home_brand_title'>Our Work Style</h2>
+                    <h2 className='home_brand_title'>Client-Centric Approach</h2>
                     <p className='paragraph'>
                     "At Trulle, we believe in the power of collaboration and understanding the unique ambitionsdriving each project. 
                     We initiate every venture by immersing ourselves in your world—graspingnot just the outlined objectives but diving deeper into your aspirations, 
@@ -587,10 +708,11 @@ export default function Home(){
                 </div>
             </div>            
         </div>
-        <div className={followerClass} style={{ left: mousePosition.x-8, top: mousePosition.y-7 }}>
+        {nav?<Footer/>:null}
+        {isTouchDevice?null:<div className={followerClass} style={{ left: mousePosition.x-8, top: mousePosition.y-7 }}>
         {/* <div className={followerClass} ref={followerRef}> */}
         
-        </div>
+        </div>}
         </>
     );
 }

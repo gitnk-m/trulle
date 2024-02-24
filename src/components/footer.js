@@ -3,11 +3,11 @@ export default function Footer (){
     return(
         <>
             <div className='footer'>
-                <h1>Contact Us</h1>
+                {/* <h1>Contact Us</h1> */}
                 <div className='footer_div'>
                     <div className='footer_container'>
                         <div className='footerLogo'>
-                            <img src='./images/navLogo.png'></img>
+                            <img src='./images/footerLogo.png'></img>
                         </div>
                         <div className='container_1'>
                             <h3>Address</h3>
@@ -24,11 +24,11 @@ export default function Footer (){
                     </div>
                     <div className='footer_container'>
                         <div className='footer_menu'>
-                            <h3>Home</h3>
-                            <h3>About Us</h3>
-                            <h3>Service</h3>
-                            <h3>Profolio</h3>
-                            <h3>Contact Us</h3>
+                            <a href='#home'>Home</a>
+                            <a href='#about'>About Us</a>
+                            <a href='#service'>Service</a>
+                            <a href='#portfolio'>Portfolio</a>
+                            <a href='#contact'>Contact Us</a>
                         </div>
                     </div>
                     <div className='footer_container footer_width_social'>
@@ -36,20 +36,20 @@ export default function Footer (){
                             <h3>Follow Us On</h3>
                             <div className='social_icons'>
                                 <div className='icon'>
-                                    <img src='./images/behance.png' alt='behance'/>
+                                    <img src='./images/footer/behance.png' alt='behance'/>
                                 </div>
                                 <div className='icon'>
-                                    <img src='./images/linkedin.png' alt='behance'/>
+                                    <img src='./images/footer/linkedin.png' alt='behance'/>
                                 </div>
                                 <div className='icon'>
-                                    <img src='./images/insta.png' alt='behance'/>
+                                    <img src='./images/footer/insta.png' alt='behance'/>
                                 </div>
                                 <div className='icon'>
-                                    <img src='./images/fb.png' alt='behance'/>
+                                    <img src='./images/footer/fb.png' alt='behance'/>
                                 </div>
-                                <div className='icon'>
+                                {/* <div className='icon'>
                                     <img src='./images/share.png' alt='behance'/>
-                                </div>
+                                </div> */}
                             </div>
                         </div>                        
                     </div>

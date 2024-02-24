@@ -4,7 +4,7 @@ import './project.css'
 // export default function Project ({project_image, project_title, project_content, project_for}){
     export default function Project ({projects}){
     const [index, setIndex] = useState(0)
-    console.log(projects)
+    // console.log(projects)
     const [project_image, setproject_image] =useState(projects[index].project_image)
     const [project_title, setproject_title] =useState(projects[index].project_title)
     const [project_content, setproject_content] =useState(projects[index].project_content)
@@ -69,16 +69,16 @@ import './project.css'
         <>
         <div className='project_container' style={{animation:projectChange}}>
             <div className='project_image'>
+            <div className='project_side'>
+                <h1>{project_for}</h1>
+            </div>   
                 <img src={project_image} alt='client-1'/>
             </div>
             <div className='project_description'>
                 <h3>{project_title}</h3>
                 <p>{project_content}</p>
-                <button className='btn project_btn_colour'>View <img src='./images/button_arrow.png'></img></button>
-            </div>                     
-            <div className='project_side'>
-                <h1>{project_for}</h1>
-            </div>                        
+                {/* <button className='btn project_btn_colour'>View <img src='./images/button_arrow.png'></img></button> */}
+            </div>                                                      
         </div>
         <div className='arrow_btn_container'>
             {/* <div className='arrow_btn' onClick={()=>setProjectChange("upProject .5s ease-in-out")}> */}

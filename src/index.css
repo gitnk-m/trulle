@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@200..700&family=Poppins:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 :root{
   --white:#F7F7F7;
@@ -11,53 +11,29 @@
   --peach2:#FF796F;
   --peach3:#FFA7A0;
 
-  --sizeLoad:6rem;
-  --fontLoad:'Montserrat', sans-serif;
-  --weightLoad:400;
+  --f1:"Oswald", sans-serif;
+  --f2:"Poppins", sans-serif;;
+  --f3:"Anton", sans-serif;
+  --f4: "Montserrat", sans-serif;
 
-  --sizeH1:4.5rem;
-  --fontH1:'Poppins', sans-serif;
-  --weightH1:700;
+  /* --s1:1rem; */
+  --s2:1.5rem;
+  /* --s3:3rem; */
+  /* --s4:4rem; */
+  --s5:4.8rem;
+  --s6:8rem;
+  --s7:10rem;
 
-  --sizeH2:3.5rem;
-  --fontH2:'Montserrat', sans-serif;
-  --weightH2:400;
+  --s1:clamp(.8rem, calc(.6rem + .5vw), 1rem);
+  /* --s2:clamp(1rem, calc(.8rem + .6vw), 2rem); */
+  --s3:clamp(1.2rem, calc(1.4rem + .6vw), 3rem);
+  --s4:clamp(2rem, calc(1.5rem + 2.5vw), 4rem);
+  /* --s1:.8rem; */
 
-  --sizeH3:2.5rem;
-  --fontH3:'Poppins', sans-serif;
-  --weightH3:700;
-
-  --sizeH4:2rem;
-  --fontH4:'Poppins', sans-serif;
-  --weightH4:700;
-
-  --sizeH5:1.25rem;
-  --fontH5:'Poppins', sans-serif;
-  --weightH5:700;
-
-  --sizeP1:1rem;
-  --fontP1:'Poppins', sans-serif;
-  --weightP1:400;
-
-  --sizeP2:.8rem;
-  --fontP2:'Poppins', sans-serif;
-  --weightP2:400;
-
-  --sizeSub:4rem;
-  --fontSub:'Anton', sans-serif;
-  --weightSub:400;
-
-  --sizeTitle:10.5rem;
-  --fontTitle:'Anton', sans-serif;
-  --weightTitle:400;
-
-  --sizeTeam:2.2rem;
-  --fontTeam:'Anton', sans-serif;
-  --weightTeam:400;
-
-  --sizeAbt:2rem;
-  --fontAbt:'Anton', sans-serif;
-  --weightAbt:400;
+  --w1:400;
+  --w2:500;
+  --w3:700;
+  --w4:300
 }
 
 *{

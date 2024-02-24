@@ -1,5 +1,5 @@
 .testimonial_container{
-    width: 320px;
+    width: 300px;
     /* width: 60%; */
     /* min-width: 280px; */
     display: flex;
@@ -11,20 +11,20 @@
 .test_title{
     width: 100%;
     display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
+    justify-content: space-between;
+    align-items: center;
     gap: 10px;
     margin-bottom: 5%;
     padding: 0 5%;
 }
 .test_title p{
-    font-family: var(--fontH5);
-    font-size: var(--sizeH5);
-    font-weight: var(--weightH5);
+    font-family: var(--f2);
+    font-size: var(--s2);
+    font-weight: var(--w3);
     color: var(--black);
 }
 .ratings{
-    width: 60%;
+    width: 45%;
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
@@ -38,29 +38,30 @@
     object-position: bottom;
 }
 .test_content{
+    height: 180px;
     background-color: var(--gray);
     padding: 5%;
     border-radius: 15px;
 
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: flex-start;
     flex-direction: column;
 
     position: relative;
 }
 .test_content p{
-    font-family: var(--fontP1);
-    font-size: var(--sizeP1);
-    font-weight: var(--weightP1);
+    font-family: var(--f2);
+    font-size: var(--s1);
+    font-weight: var(--w1);
     color: var(--dark_gray);  
     text-align: justify;
     margin-bottom: 5%; 
 }
 .test_content h4{
-    font-family: var(--fontP1);
-    font-size: var(--sizeP1);
-    font-weight: var(--weightP1);
+    font-family: var(--f2);
+    font-size: var(--s1);
+    font-weight: var(--w1);
     color: var(--black);  
 }
 .testimonial_dot{
