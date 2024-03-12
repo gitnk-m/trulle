@@ -782,6 +782,11 @@
     color: var(--white);
     margin-top: 1rem;
 }
+.alert .message{
+    font-family: var(--f2);
+    font-size: var(--s1);
+    font-weight: var(--w1);
+}
 @media screen and (max-width:768px) {
     .home_talk{
         width: 100%;
