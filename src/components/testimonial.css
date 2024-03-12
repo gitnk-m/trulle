@@ -38,7 +38,7 @@
     object-position: bottom;
 }
 .test_content{
-    height: 180px;
+    height: 200px;
     background-color: var(--gray);
     padding: 5%;
     border-radius: 15px;
@@ -52,7 +52,7 @@
 }
 .test_content p{
     font-family: var(--f2);
-    font-size: var(--s1);
+    font-size: .85rem;
     font-weight: var(--w1);
     color: var(--dark_gray);  
     text-align: justify;

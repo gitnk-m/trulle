@@ -26,7 +26,7 @@ export default function NavMob(){
         <div className='nav_container_mob' style={{backgroundColor:navBG, boxShadow:boxShadow}}>
             <div className='nav_main_mob'>
                 <div className='nav_logo'>
-                    <img src='./images/navLogo.png' alt='trulle'/>
+                    <img src='./images/navLogo.svg' alt='trulle'/>
                 </div>
                 <div className={menuClick?'nav_mob_menu':'dispalyNone'}>
                     <div className={menuClick?'nav_mob_menu_container':"displayNone"}>

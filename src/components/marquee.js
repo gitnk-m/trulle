@@ -12,9 +12,7 @@ export default function Marquee({ children, speed }){
             {children}
             {children}
             {children}
-            {children}
-            {children}
-            {children}
+            
         </div>
     );
 }

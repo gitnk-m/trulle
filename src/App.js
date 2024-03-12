@@ -7,6 +7,7 @@ import Home from './pages/Home';
 import About from './pages/about';
 
 import Rough from './components/rough';
+import TestCheck from './pages/test';
 import { useEffect, useState } from 'react';
 
 function App() {
@@ -35,12 +36,12 @@ function App() {
   
   return (
     <>
-      {location.pathname!=='/'?{navbar}:null}
+      {location.pathname!=='/'?navbar:null}
       <Routes>
         <Route path='/' element={<Home/>}/>
-        <Route path='/about' element={<About/>}/>
+        {/* <Route path='/about' element={<About/>}/> */}
 
-        <Route path='/rough' element={<Rough/>}/>
+        {/* <Route path='/rough' element={<TestCheck/>}/> */}
       </Routes>
       {location.pathname!=='/'?<Footer/>:null}      
     </>

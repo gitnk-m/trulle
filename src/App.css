@@ -485,7 +485,7 @@
 
 .follower {
     pointer-events: none;
-    z-index: 10; 
+    z-index: 12; 
   }
 .big{
     position: fixed;    
@@ -507,11 +507,17 @@
 .followerDifference{
     mix-blend-mode: difference;
 }
+.followerOther{
+    mix-blend-mode: exclusion;
+}
 .peach{
     background-color: var(--peach);
 }
 .white{
     background-color: var(--white);
+}
+.black{
+    background-color: var(--black);
 }
 .blackMove{
     animation: moveBlack 2s ease forwards;

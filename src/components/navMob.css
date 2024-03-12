@@ -1,6 +1,6 @@
 .nav_container_mob{
     width: 100dvw;
-    padding-top: .5rem;
+    padding-top: 1rem;
     position: fixed;
     z-index: 4;
     padding-bottom: .5rem;
@@ -14,6 +14,14 @@
     justify-content: flex-end;
     align-items: center;
 }
+.nav_main_mob .nav_logo{
+    height: 30px;
+}
+.nav_main_mob .nav_logo img{
+    height: 100%;
+    object-fit: contain;
+
+}
 .nav_mob_menu_btn{
     width: 10%;
     display: flex;
@@ -23,7 +31,7 @@
     position: relative;
 }
 .bar{
-    width: 100%;
+    width: 80%;
     height: 3.5px;
     background-color: var(--black);
     margin-bottom: 3.5px;
@@ -31,12 +39,12 @@
     transition: all .5s;
 }
 .right{
-    width: 60%;
+    width: 50%;
     position: absolute;
     transform: rotate(-315deg);
 }
 .left{
-    width: 60%;
+    width: 50%;
     position: absolute;
     transform: rotate(315deg);
 }
@@ -76,4 +84,6 @@
 .mob_menu_logo{
     position: absolute;
     bottom: 5%;
+    left: 50%;
+    transform: translateX(-50%);
 }

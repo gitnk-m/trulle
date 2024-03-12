@@ -32,7 +32,7 @@ export default function NavWeb(){
         <div className='nav_container' style={{background:navBG, boxShadow:boxShadow}}>
             <div className='nav_main'>
                 <div className='nav_logo'>
-                    <img src='./images/navLogo.png' alt='trulle'/>
+                    <img src='./images/navLogo.svg' alt='trulle'/>
                 </div>
                 <div className='nav_web_menu align_right'>
                     <a href='#home'>Home</a>
@@ -42,7 +42,9 @@ export default function NavWeb(){
                     <a href='#contact'>Contact Us</a>
                 </div>
                 <div className='nav_what'>
-                    <img src='./images/call.png' alt='trulle'/>
+                    {/* <a href='http://wa.me/919600580990'> */}
+                        <img src='./images/call.svg' alt='trulle'/>
+                    {/* </a> */}
                 </div>
             </div>
         </div>

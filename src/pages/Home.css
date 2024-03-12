@@ -226,7 +226,7 @@
 }
 @media screen and (max-width:768px){    
     .home_who{
-        margin-top: 20%;
+        margin-top: 10rem;
         margin-bottom: 0;
     }
     .home_who_contaier{
@@ -647,12 +647,14 @@
     align-items: center;
     flex-direction: row;
     margin: 2% 0;
+    flex-wrap: wrap;
 }
 .input_container{
-    /* width: 20%; */
-    min-width: 150px;
+    width: 20%;
+    min-width: 180px;
     margin-right:2.5%;
     margin-left:2.5%;
+    margin-bottom: 2rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -663,10 +665,14 @@
     background-color: var(--gray);
 }
 .input_container label{
+    width: 100%;
     cursor: pointer;
     text-wrap: nowrap;
 }
 .input_container label span{
+    display: flex;
+    justify-content: center;
+    width: 100%;
     border-radius: 50px;
     padding: .5rem 1rem;
     background-color: var(--gray);
@@ -690,24 +696,34 @@
 .text{
     width: 25%;
 }
-.input_container textarea{
-    width: 100%;
-    padding: 5% 3% 5% 3%;
-    border-radius: 10px;
-    background-color: var(--gray);
+.input_container input{
+    width: 90%;
+    padding: .5rem 1rem;
     color: var(--black);
     border: none;
-    resize: none;
-    /* transform: translateX(-5%); */
-    margin-bottom: 0;
-}
-.input_container textarea::placeholder{
-    color: var(--black);
+    border-bottom: 2px solid var(--black);
+    margin-bottom: 2rem;
+    transition: .5s;
+
     font-family: var(--f2);
-    /* font-size: var(--s1); */
     font-size: 1rem;
     font-weight: var(--w1);
-    text-align: center;
+}
+.input_container input:focus{
+    /* border: none; */
+    padding-left: 0;
+    outline: none;
+}
+.input_container input:focus::placeholder{
+    color: transparent;
+}
+.input_container input::placeholder{
+    color: var(--black);
+    font-family: var(--f2);
+    font-size: 1rem;
+    font-weight: var(--w1);
+    padding-bottom: 1rem;
+    /* text-align: center; */
 }
 .input_container button{
     padding: 5% 25%;
@@ -721,7 +737,51 @@
     background-color: var(--peach);
     color: var(--white);
 }
+.input_container button:active{
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+}
+.alert-container{
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.alertBg{
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: .5;
+    position: absolute;
+}
+.alert{
+    width: 300px;
+    background-color: var(--white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    opacity: 1;
+    z-index: 11;
+    border-radius: 15px;    
+    padding: 1rem;
+}
+.alert button{
+    padding: 1% 5%;
+    border: none;
+    border-radius: 5px;    
 
+    font-family: var(--f2);
+    font-size: var(--s1);
+    font-weight: var(--w3);
+    background-color: var(--peach);
+    color: var(--white);
+    margin-top: 1rem;
+}
 @media screen and (max-width:768px) {
     .home_talk{
         width: 100%;
@@ -743,7 +803,7 @@
         width: 80%;
         margin-left: 0;
         margin-right: 0;
-        margin-bottom: 2.5rem;
+        margin-bottom: 1.8rem;
     }
     .input_container label{
         width: 100%;

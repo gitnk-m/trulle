@@ -8,11 +8,25 @@ import NavWeb from '../components/navWeb';
 import NavMob from '../components/navmob';
 import { Fade } from 'react-awesome-reveal';
 import {motion, useScroll} from "framer-motion";
+import axios from 'axios';
 
 import MouseFollower from "mouse-follower";
 import gsap from "gsap";
 // import "./curser.scss";
 // import "curser"
+
+const CustomAlert = ({ message1, message2, onClose }) => {
+    return (
+        <div className='alert-container'>
+            <div className="alertBg"></div>
+            <div className='alert'>
+                <div className="message">{message1}</div>
+                <div className="message">{message2}</div>
+                <button onClick={onClose}>Close</button>
+            </div>
+        </div>
+    );
+  };
 
 export default function Home(){
     // MouseFollower.registerGSAP(gsap);
@@ -23,12 +37,15 @@ export default function Home(){
     // });
 
     const [enq, setEnq] = useState({
+        AppStatus:'webEnq',
+        name:'',
+        mobile:'',
+        email:'',
         web_development:'',
         web_application:'',
         app_development:'',
         logo_design:'',
-        brand_design:'',
-        write_us:''
+        brand_design:''
     })
 
     const enqChange = (e) =>{
@@ -54,8 +71,43 @@ export default function Home(){
             }));
         }
     }
-    const enqSubmit = () =>{
-        console.log(enq)
+    const enqSubmit = (e) =>{
+        e.preventDefault()
+
+        const enqData = new FormData();
+        enqData.append('AppStatus', enq.AppStatus);
+        enqData.append('Name', enq.name)
+        enqData.append('Mobile', enq.mobile)
+        enqData.append('Email', enq.email)
+        enqData.append('AppStatus', enq.AppStatus)
+        enqData.append('Web_development', enq.web_development)
+        enqData.append('Web_application', enq.web_application)
+        enqData.append('App_development', enq.app_development)
+        enqData.append('Logo_design', enq.logo_design)
+        enqData.append('Brand_design', enq.brand_design)
+
+        axios.post('https://script.google.com/macros/s/AKfycbz-a-TG2qhcK0xXkmC2hHvq23b64_SJ_XvM7ZuOhoSaKTV4sOe6EpnKEfh6hX0yvXv-Og/exec', enqData)
+        .then(res=>{
+            if (res.status===200){
+                handleShowAlert()
+                setEnq({
+                    AppStatus:'webEnq',
+                    name:'',
+                    mobile:'',
+                    email:'',
+                    web_development:'',
+                    web_application:'',
+                    app_development:'',
+                    logo_design:'',
+                    brand_design:''
+                })
+            } else{
+                console.error('Server returned an error status:', res.status);
+            }
+        })
+        .catch(error=>{
+            console.error('Error:',error);
+        })
     }
 
     // const [sessionLoading, setSessionLoading] = useState(false)
@@ -132,57 +184,47 @@ export default function Home(){
     const projects =[
         {
             project_image:'./images/projects/appl.png',
-            project_title:'Appl Solar App',
-            project_content:`Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean dictum blandit consectetur. 
-            Nunc erat lectus, imperdiet at nisi id, congue tempor sapien. Ut id volutpat lacus. 
-            Fusce blandit massa tortor, non commodo eros sagittis fringilla. 
-            Morbi efficitur fermentum maximus. Aliquam a massa est. Morbi nec neque hendrerit, 
-            laoreet metus non, elementum dolor.`,
+            project_title:'Amazing Power Private Limited',
+            project_content:`Appl solar ap streamlines solar projects by empowering Appl to conduct precise customer surveys, 
+            generate instant quotations, and effortlessly manage installations. With its advanced features, including invoice and quotation generation, 
+            Appl ensures smooth transactions and efficient project management. Furthermore, it meticulously maintains detailed customer records, 
+            facilitating ongoing support and fostering long-term relationships. Experience the convenience and efficiency of Appl in every step of your solar journey.`,
             project_for:'DEVELOPMENT'
         },{
             project_image:'./images/projects/evergreen.png',
-            project_title:'EverGreen Safety Website',
-            project_content:`Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean dictum blandit consectetur. 
-            Nunc erat lectus, imperdiet at nisi id, congue tempor sapien. Ut id volutpat lacus. 
-            Fusce blandit massa tortor, non commodo eros sagittis fringilla. 
-            Morbi efficitur fermentum maximus. Aliquam a massa est. Morbi nec neque hendrerit, 
-            laoreet metus non, elementum dolor.`,
+            project_title:'EverGreen Safety',
+            project_content:`Evergreen Safety is a leading provider in safety solutions. Using cutting-edge ReactJS technology, 
+            we meticulously detailed their services and product offerings, ensuring an immersive user experience. 
+            we leveraged the power of parallax effects to give the website a modern and dynamic look, 
+            capturing the essence of Evergreen Safety's commitment to innovation and excellence. 
+            With separate pages dedicated to showcasing their extensive product and service categories, 
+            we provided visitors with easy access to valuable information.
+            `,
             project_for:'DEVELOPMENT'
         },{
             project_image:'./images/projects/flicker.png',
-            project_title:'Flicker Brand Design',
-            project_content:`Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean dictum blandit consectetur. 
-            Nunc erat lectus, imperdiet at nisi id, congue tempor sapien. Ut id volutpat lacus. 
-            Fusce blandit massa tortor, non commodo eros sagittis fringilla. 
-            Morbi efficitur fermentum maximus. Aliquam a massa est. Morbi nec neque hendrerit, 
-            laoreet metus non, elementum dolor.`,
+            project_title:'Flicker Show',
+            project_content:`Flicker Show is a media production company, they are in fond in craft a logo that captures their unique identity and work theme. 
+            Our team carefully considered their requirements and creative vision to deliver a logo that embodies the essence of their brand.`,
             project_for:'DESIGN'
         },{
             project_image:'./images/projects/gt.png',
-            project_title:'Goodtime Service App',
-            project_content:`Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean dictum blandit consectetur. 
-            Nunc erat lectus, imperdiet at nisi id, congue tempor sapien. Ut id volutpat lacus. 
-            Fusce blandit massa tortor, non commodo eros sagittis fringilla. 
-            Morbi efficitur fermentum maximus. Aliquam a massa est. Morbi nec neque hendrerit, 
-            laoreet metus non, elementum dolor.`,
+            project_title:'Goodtime Service',
+            project_content:`Tailored web app for GoodTime Services, specialists in daily cleaning and general maintenance. Our solution acts as an ERP and DMS, 
+            streamlining workflow for seamless task management and customer record-keeping. With a focus on maintaining smooth operations and managing customer interactions, 
+            our app ensures efficiency at every step. Experience the benefits of optimized workflow and enhanced customer management with Trulle's bespoke web app solutions.`,
             project_for:'DEVELOPMENT'
         },{
             project_image:'./images/projects/nttf.png',
-            project_title:'NTTF Creative Design',
-            project_content:`Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean dictum blandit consectetur. 
-            Nunc erat lectus, imperdiet at nisi id, congue tempor sapien. Ut id volutpat lacus. 
-            Fusce blandit massa tortor, non commodo eros sagittis fringilla. 
-            Morbi efficitur fermentum maximus. Aliquam a massa est. Morbi nec neque hendrerit, 
-            laoreet metus non, elementum dolor.`,
+            project_title:'NTTF',
+            project_content:`Trulle partnered with NTTF, a renowned educational institution, to design and implement safety and guidance signage. 
+            Our creative solutions ensure clarity and effectiveness in communication throughout the premises.`,
             project_for:'DESIGN'
         },{
             project_image:'./images/projects/tned.png',
-            project_title:'Govt Hr Sec Vocational Book Design',
-            project_content:`Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean dictum blandit consectetur. 
-            Nunc erat lectus, imperdiet at nisi id, congue tempor sapien. Ut id volutpat lacus. 
-            Fusce blandit massa tortor, non commodo eros sagittis fringilla. 
-            Morbi efficitur fermentum maximus. Aliquam a massa est. Morbi nec neque hendrerit, 
-            laoreet metus non, elementum dolor.`,
+            project_title:'Vocational Internship Book',
+            project_content:`Trulle is proud to showcase our collaboration with the Tamil Nadu Education Department in designing and laying out the Internship Companion Book for vocational students in higher secondary education. 
+            As part of our contribution, we introduced a captivating mascot that embodies the spirit of exploration and learning. This mascot serves as a friendly guide throughout the book, engaging students and enhancing their learning experience.`,
             project_for:'DESIGN'
         }
     ]
@@ -191,34 +233,10 @@ export default function Home(){
     const testimonials = [
         {
             performance:'Excellent',
-            test_content:`lorem ipsum jifj iji  lorem ipsum jifj iji  lorem ipsum jifj iji  
-            lorem ipsum jifj iji  lorem ipsum jifj iji`,
-            test_by:'Ambrose',
-            rating:1
-        },{
-            performance:'Excellent',
-            test_content:`lorem ipsum jifj iji  lorem ipsum jifj iji  lorem ipsum jifj iji  
-            lorem ipsum jifj iji  lorem ipsum jifj iji`,
-            test_by:'Ambrose',
-            rating:2
-        },{
-            performance:'Excellent',
-            test_content:`lorem ipsum jifj iji  lorem ipsum jifj iji  lorem ipsum jifj iji  
-            lorem ipsum jifj iji  lorem ipsum jifj iji`,
-            test_by:'Ambrose',
-            rating:3
-        },{
-            performance:'Excellent',
-            test_content:`lorem ipsum jifj iji  lorem ipsum jifj iji  lorem ipsum jifj iji  
-            lorem ipsum jifj iji  lorem ipsum jifj iji`,
-            test_by:'Ambrose',
+            test_content:`Impressed by Trulle's custom ERP software, tailored to our needs. 
+            Their SEO-integrated system has optimized our operations, enhancing efficiency and driving growth."`,
+            test_by:'Suren',
             rating:4
-        },{
-            performance:'Excellent',
-            test_content:`lorem ipsum jifj iji  lorem ipsum jifj iji  lorem ipsum jifj iji  
-            lorem ipsum jifj iji  lorem ipsum jifj iji`,
-            test_by:'Ambrose',
-            rating:5
         }
     ]
     const [homeTestIndex, setHomeTestIndex] = useState(0)
@@ -252,9 +270,6 @@ export default function Home(){
         target:ref,
         offset:["0 1.33", "1.45 1"]
     })
-    useEffect(()=>{
-        console.log(scrollYProgress)
-    },[])
 
 
 //  NavBar
@@ -282,6 +297,17 @@ export default function Home(){
     
 // touch check
     const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0;
+
+//  Alert on Submit
+    const [showAlert, setShowAlert] = useState(false);
+
+    const handleShowAlert = () => {
+        setShowAlert(true);
+    };
+
+    const handleCloseAlert = () => {
+        setShowAlert(false);
+    };
 
     return(
         <>
@@ -397,20 +423,23 @@ export default function Home(){
                     <div className='slide_container'>
                         <div className='Client_slider'>
                             <Marquee 
-                                children={<img src='./images/strip1.png'/>} 
-                                speed={'45000ms'}
+                                children={<img src='./images/ss/strip1.svg'/>} 
+                                speed={'198000ms'}
+                                // speed={'9000ms'}
                                 type={'strip'}/>                                
                         </div>
                         <div className='Client_slider'>
                             <Marquee 
-                                children={<img src='./images/strip2.png'/>} 
-                                speed={'30000ms'}
+                                children={<img src='./images/ss/strip2.svg'/>} 
+                                speed={'132000ms'}
+                                // speed={'6000ms'}
                                 type={'strip'}/>
                         </div>
                         <div className='Client_slider'>
                             <Marquee 
-                                children={<img src='./images/strip3.png'/>} 
-                                speed={'15000ms'}
+                                children={<img src='./images/ss/strip3.svg'/>} 
+                                speed={'66000ms'}
+                                // speed={'3000ms'}
                                 type={'strip'}/>
                         </div>
                     </div>      
@@ -436,7 +465,7 @@ export default function Home(){
                     </p>
                 </div>
                 <div className='home_who_image'>
-                   <img src='./images/expert.png' alt='Experts'/>
+                   <img src='./images/expert.png' alt='Experts' onMouseEnter={()=>setFollowerClass('followerOther big white')} onMouseLeave={()=>setFollowerClass('follower small peach')}/>
                 </div>
                 
             </div>
@@ -522,7 +551,7 @@ export default function Home(){
                         type={'text'}/> 
                     <Marquee 
                         children={<span className='scroller'>BRAND DESIGN - DEVELOPMENT - ENTERPRISE BUSINESS APPLICATIONS - BRAND DESIGN - DEVELOPMENT - ENTERPRISE BUSINESS APPLICATIONS - BRAND DESIGN - DEVELOPMENT - ENTERPRISE BUSINESS APPLICATIONS</span>} 
-                        speed={'120000ms'} 
+                        speed={'150000ms'} 
                         type={'text'}/>                                
                 </div>
             </div>
@@ -566,7 +595,7 @@ export default function Home(){
                 <div className='home_workstyle'>
                     <h1 className='home_workstyle_title'>Our Approach</h1>
                     <div className='workStyle_image'>
-                        <img src='./images/homeStyle.png' alt='Home Style'/>
+                        <img src='./images/homeStyle.svg' alt='Home Style'/>
                     </div>
                     <h2 className='home_brand_title'>Client-Centric Approach</h2>
                     <p className='paragraph'>
@@ -579,7 +608,7 @@ export default function Home(){
                     Each triumph is a reflection of our commitment to turning your aspirations into a reality that exceeds even the loftiest of goals."
                     </p>
                 </div>
-                <div className='home_team'>
+                {/* <div className='home_team'>
                     <h1>TEAM</h1>
                     <div className='team_list'>
                         <div className='team_container'>
@@ -616,7 +645,7 @@ export default function Home(){
                             <p className='team_name'>Karthikeyan T</p>
                         </div>
                     </div>
-                </div>
+                </div> */}
                 <div className='home_arc_bottom'>
                     <img src='./images/top.png'/>
                 </div>
@@ -624,6 +653,7 @@ export default function Home(){
             <div id='contact' className='home_talk'>
                 <h1>LET'S TALK</h1>
                 <div className='home_talk_container'>
+                    <form onSubmit={enqSubmit}>
                     <div className='input_row'>
                         <div className='input_container'>
                             <label>
@@ -661,8 +691,6 @@ export default function Home(){
                                 <span>App Development</span>
                             </label>
                         </div>
-                    </div>
-                    <div className='input_row'>
                         <div className='input_container'>
                             <label>
                                 <input 
@@ -689,22 +717,45 @@ export default function Home(){
                         </div>
                     </div>
                     <div className='input_row'>
-                        <div className='input_container text'>
-                            <textarea 
-                                className='input_field' 
-                                placeholder='Write us'
-                                name='write_us'
-                                value={enq.write_us}
-                                onChange={enqChange} 
-                                rows="3"
-                                />
+                        <div className='input_container'>
+                            <input
+                            type='text'
+                            name='name'
+                            value={enq.name}
+                            onChange={enqChange}
+                            placeholder='Name'
+                            required
+                            />
+                        </div>
+                        <div className='input_container'>
+                            <input
+                            type='tel'
+                            name='mobile'
+                            value={enq.mobile}
+                            onChange={enqChange}
+                            placeholder='Mobile Number'
+                            minLength={10}
+                            maxLength={10}
+                            pattern="[0-9]{10}"
+                            required
+                            />
+                        </div>
+                        <div className='input_container'>
+                            <input
+                            type='email'
+                            name='email'
+                            value={enq.email}
+                            onChange={enqChange}
+                            placeholder='Email'
+                            />
                         </div>
                     </div>
                     <div className='input_row'>
                         <div className='input_container' onMouseEnter={()=>setFollowerClass('followerDifference small peach')} onMouseLeave={()=>setFollowerClass('follower small peach')}>
-                            <button onClick={enqSubmit}>Submit</button>
+                            <button>Submit</button>
                         </div>
                     </div>
+                    </form>
                 </div>
             </div>            
         </div>
@@ -713,6 +764,7 @@ export default function Home(){
         {/* <div className={followerClass} ref={followerRef}> */}
         
         </div>}
+        {showAlert && <CustomAlert message1='Thanks for Contacting Trulle.' message2=' Our Team will contact you soon...' onClose={handleCloseAlert} />}
         </>
     );
 }

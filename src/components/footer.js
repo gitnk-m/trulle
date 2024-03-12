@@ -47,9 +47,9 @@ export default function Footer (){
                                 <div className='icon'>
                                     <img src='./images/footer/fb.png' alt='behance'/>
                                 </div>
-                                {/* <div className='icon'>
-                                    <img src='./images/share.png' alt='behance'/>
-                                </div> */}
+                                <div className='icon'>
+                                    <img src='./images/whatsapp.svg' alt='behance'/>
+                                </div>
                             </div>
                         </div>                        
                     </div>
