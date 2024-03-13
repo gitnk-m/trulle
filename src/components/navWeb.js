@@ -30,6 +30,7 @@ export default function NavWeb(){
     }
     return(
         <div className='nav_container' style={{background:navBG, boxShadow:boxShadow}}>
+            <nav>
             <div className='nav_main'>
                 <div className='nav_logo'>
                     <img src='./images/navLogo.svg' alt='trulle'/>
@@ -47,6 +48,7 @@ export default function NavWeb(){
                     {/* </a> */}
                 </div>
             </div>
+            </nav>
         </div>
     );
 }

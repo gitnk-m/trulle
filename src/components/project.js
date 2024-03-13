@@ -70,12 +70,16 @@ import './project.css'
         <div className='project_container' style={{animation:projectChange}}>
             <div className='project_image'>
             <div className='project_side'>
+                <header>
                 <h1>{project_for}</h1>
+                </header>
             </div>   
                 <img src={project_image} alt='client-1'/>
             </div>
             <div className='project_description'>
-                <h3>{project_title}</h3>
+                <header>
+                    <h3>{project_title}</h3>
+                </header>
                 <p>{project_content}</p>
                 {/* <button className='btn project_btn_colour'>View <img src='./images/button_arrow.png'></img></button> */}
             </div>                                                      
@@ -83,11 +87,11 @@ import './project.css'
         <div className='arrow_btn_container'>
             {/* <div className='arrow_btn' onClick={()=>setProjectChange("upProject .5s ease-in-out")}> */}
             <div className='arrow_btn' onClick={upProject}>
-                <img src='./images/up.png'/>
+                <img src='./images/up.png' alt='trulle'/>
             </div>
             {/* <div className='arrow_btn' onClick={()=>setProjectChange("downProjectt .5s ease-in-out")}> */}
             <div className='arrow_btn' onClick={downProject}>
-                <img src='./images/down.png'/>
+                <img src='./images/down.png' alt='trulle'/>
             </div>
         </div>
         </>

@@ -42,6 +42,9 @@
   box-sizing: border-box;
   cursor: none;
 }
+em{
+  font-style: normal;
+}
 #root{
   width: 100%;
   height: auto;

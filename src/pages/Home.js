@@ -6,12 +6,10 @@ import Footer from '../components/footer';
 import { useState, useEffect, useRef  } from 'react';
 import NavWeb from '../components/navWeb';
 import NavMob from '../components/navmob';
-import { Fade } from 'react-awesome-reveal';
-import {motion, useScroll} from "framer-motion";
+// import { Fade } from 'react-awesome-reveal';
+import {motion} from "framer-motion";
 import axios from 'axios';
 
-import MouseFollower from "mouse-follower";
-import gsap from "gsap";
 // import "./curser.scss";
 // import "curser"
 
@@ -265,11 +263,11 @@ export default function Home(){
 
 
 //  Framer Animation
-    const ref = useRef(null)
-    const {scrollYProgress} = useScroll({
-        target:ref,
-        offset:["0 1.33", "1.45 1"]
-    })
+    // const ref = useRef(null)
+    // const {scrollYProgress} = useScroll({
+    //     target:ref,
+    //     offset:["0 1.33", "1.45 1"]
+    // })
 
 
 //  NavBar
@@ -315,9 +313,11 @@ export default function Home(){
         <div className={loading?'mainLoading':'mainLoading hide'}>
             <div className='sloganContainer'>
                 <div className='slogantext'>
+                    <article>
                     <h1 className='slogan'>
 
                     </h1>
+                    </article>
                 </div>
                 <div className='circleContainer'>
                     <div className='circle'>
@@ -326,37 +326,29 @@ export default function Home(){
                 </div>                    
             </div>
         </div>}
-        {/* <div className={loading?'mainLoading':'mainLoading hide'}>
-            <div className='sloganContainer'>
-                <div className='slogantext'>
-                    <h1 className='slogan'>
-
-                    </h1>
-                </div>
-                <div className='circle aniCircle'>
-
-                </div>
-            </div>
-        </div> */}
         {nav?<div className='navDrop' style={window.innerWidth<768?null:{animation:'navDrop 2s ease forwards'}}>{navbar}</div>:null}
         <div id='home' style={checkLoad?{zIndex: 0}:{animation:'zmove 5s ease forwards'}} className={loading?'loading2 hide':'loading2'}>        
             <div className='backCircle backAni' style={checkLoad?{width: '100dvw', height:'100dvh',borderRadius: 0}:{animation:'backCircle 5s ease forwards'}}>
                 <div className='newLandText' style={checkLoad?{opacity:1}:{animation:'landText 5s ease forwards'}}>
+                    <article>
+                    <header>
                     <h1>YOUR IDEA COMES ALIVE</h1>
-                    <p>We create tailored Software solution for you business to hit the mark</p>
-                    <button className='btn home_land_btn'><a href='#contact'>Let's Talk <img src='./images/button_arrow.png'></img></a></button>
+                    <p>We create <em>tailored Software</em> solution for you business to hit the mark</p>
+                    </header>
+                    </article>
+                    <button className='btn home_land_btn'><a href='#contact'>Let's Talk <img src='./images/button_arrow.png' alt='trulle'></img></a></button>
                 </div>
                 <div onMouseEnter={()=>setFollowerClass('followerDifference big peach')} onMouseLeave={()=>setFollowerClass('follower small peach')}  className={checkLoad?'circle circle2 cirAni2 circle2landing':'circle circle2 cirAni2'} style={checkLoad?null:{animation:'circle2 5s ease forwards'}}>
                     <div className={nav?'home_landing_slide_cont':"home_landing_slider_dis"}>
                         <div className='home_landing_slider'>
                             <div className='home_landing_slide'>
-                                <img src='./images/ss/kasap.png' alt='Model'/>
+                                <img src='./images/ss/kasap.png' alt='trulle, vellore'/>
                             </div>
                             <div className='home_landing_slide'>
-                                <img src='./images/ss/vedic.png' alt='Model'/>
+                                <img src='./images/ss/vedic.png' alt='trulle, vellore'/>
                             </div>
                             <div className='home_landing_slide'>
-                                <img src='./images/ss/hedge.png' alt='Model'/>
+                                <img src='./images/ss/hedge.png' alt='trulle, vellore'/>
                             </div>
                         </div>
                     </div>
@@ -364,80 +356,30 @@ export default function Home(){
             </div>
         </div>        
         <div className={nav?'home_wrapper':'home_wrapper  hide'}>            
-            {/* <div className='home_landing'>
-                <div className='landing_content'>
-                    <h1>Your Idea Comes <span>Alive</span></h1>
-                    <p>We create tailored Software solution for you business to hit the mark </p>
-                    <button className='btn landing_btn_colour'>Know More</button>
-                </div>
-                <div className='landing_image'>
-                    <div className="landing_container" >
-                        <div className="main">
-                            <img src="./images/landing/landing.png"/>
-                        </div>
-                        <div className="one">
-                            <img src="./images/landing/j.png"/>
-                        </div>
-                        <div className="two">
-                            <img src="./images/landing/g.png"/>
-                        </div>
-                        <div className="three">
-                            <img src="./images/landing/f.png"/>
-                        </div>
-                        <div className="four">
-                            <img src="./images/landing/h.png"/>
-                        </div>
-                        <div className="five">
-                            <img src="./images/landing/z.png"/>
-                        </div>
-                        <div className="six">
-                            <img src="./images/landing/k.png"/>
-                        </div>
-                        <div className="seven">
-                            <img src="./images/landing/l.png"/>
-                        </div>
-                        <div className="eight">
-                            <img src="./images/landing/x.png"/>
-                        </div>
-                        <div className="nine">
-                            <img src="./images/landing/a.png"/>
-                        </div>
-                        <div className="ten">
-                            <img src="./images/landing/s.png"/>
-                        </div>
-                        <div className="eleven">
-                            <img src="./images/landing/c.png"/>
-                        </div>
-                        <div className="twelve">
-                            <img src="./images/landing/d.png"/>
-                        </div>
-                    </div>
-                </div>
-            </div> */}
             <div className='home_clients' onMouseEnter={()=>setFollowerClass('followerDifference white big')} onMouseLeave={()=>setFollowerClass('follower small peach')}>
                 <div className={nav?'home_arc_top_load blackMove':'home_arc_top_load'}>                    
-                    <img src='./images/top.png'/>
+                    <img src='./images/top.png' alt='trulle'/>
                 </div>
                 <div className='home_client_container'>
                     <h1>Our Clients</h1>
                     <div className='slide_container'>
                         <div className='Client_slider'>
                             <Marquee 
-                                children={<img src='./images/ss/strip1.svg'/>} 
+                                children={<img src='./images/ss/strip1.svg' alt='Trulle Clients'/>} 
                                 speed={'198000ms'}
                                 // speed={'9000ms'}
                                 type={'strip'}/>                                
                         </div>
                         <div className='Client_slider'>
                             <Marquee 
-                                children={<img src='./images/ss/strip2.svg'/>} 
+                                children={<img src='./images/ss/strip2.svg' alt='Trulle Clients'/>} 
                                 speed={'132000ms'}
                                 // speed={'6000ms'}
                                 type={'strip'}/>
                         </div>
                         <div className='Client_slider'>
                             <Marquee 
-                                children={<img src='./images/ss/strip3.svg'/>} 
+                                children={<img src='./images/ss/strip3.svg' alt='Trulle Clients'/>} 
                                 speed={'66000ms'}
                                 // speed={'3000ms'}
                                 type={'strip'}/>
@@ -448,7 +390,7 @@ export default function Home(){
                     </div>              
                 </div>                
                 <div className='home_arc_bottom'>                    
-                    <img src='./images/top.png'/>
+                    <img src='./images/top.png' alt='trulle'/>
                 </div>
             </div>
             <div className='home_who'>
@@ -456,21 +398,34 @@ export default function Home(){
                 <h1 >WHO WE ARE</h1>
                 </Fade> */}
                 <div className='home_who_contaier'>
-                    <h2>Good Engagement, <br/>Brings Great Conversions</h2>
-                    <p>
-                    At Trulle, we understand the importance of engaging user experiences in driving conversions. 
-                    From mobile apps to websites and e-commerce platforms, we specialize in crafting solutions that captivate users and drive action. 
-                    With our expertise in enterprise software and brand design, we help businesses streamline operations and create a strong visual identity that resonates with customers. 
-                    Let's work together to turn engagement into conversions. Contact us today!
-                    </p>
+                    <article>
+                        <main>
+                            <header>
+                                <h2>Good Engagement, <br/>Brings Great Conversions</h2>
+                            </header>
+                            <summary>
+                                <p>
+                                At <em>Trulle</em>, we understand the importance of engaging user experiences in driving conversions. 
+                                From <em>mobile apps</em> to <em>websites</em> and <em>e-commerce</em> platforms, we specialize in crafting solutions that captivate users and drive action. 
+                                With our expertise in <em>enterprise software</em> and <em>brand design</em>, we help businesses streamline operations and create a strong visual identity that resonates with customers. 
+                                Let's work together to turn engagement into conversions. Contact us today!
+                                </p>
+                            </summary>
+                        </main>
+                    </article>
                 </div>
                 <div className='home_who_image'>
-                   <img src='./images/expert.png' alt='Experts' onMouseEnter={()=>setFollowerClass('followerOther big white')} onMouseLeave={()=>setFollowerClass('follower small peach')}/>
+                    <figure>
+                        <img src='./images/expert.png' alt='Trulle way' onMouseEnter={()=>setFollowerClass('followerOther big white')} onMouseLeave={()=>setFollowerClass('follower small peach')}/>
+                    </figure>
                 </div>
                 
             </div>
             <div id='service' className='home_expertise'>
-                <h2 className='home_expertise_title'>Our Expertise</h2>
+                <article>
+                    <header>
+                        <h2 className='home_expertise_title'>Our Expertise</h2>
+                    </header>
                 {window.innerWidth>768?<div className='home_expertise_container'>
                     {/* <div className='expert_container_home peach1'> */}
                     <motion.div 
@@ -482,8 +437,8 @@ export default function Home(){
                         <h2>UX UI Design</h2>
                         <div className='home_expert_points'>
                             <p>
-                                User Experience<br/>
-                                User interface
+                                <em>User Experience</em><br/>
+                                <em>User interface</em>
                             </p>
                         </div>
                     </motion.div>
@@ -491,9 +446,9 @@ export default function Home(){
                         <h2>DEVELOPMENT</h2>
                         <div className='home_expert_points'>
                             <p>
-                                Web Development<br/>
-                                E - Commerce Site<br/>
-                                Applications
+                            <em>Web Development</em><br/>
+                            <em>E - Commerce Site</em><br/>
+                            <em>Applications</em>
                             </p>
                         </div>
                     </div>
@@ -506,9 +461,9 @@ export default function Home(){
                         <h2>BRANDING</h2>
                         <div className='home_expert_points'>
                             <p>
-                                Logo<br/>
-                                Brand Touch Point<br/>
-                                Style Sheets
+                            <em>Logo</em><br/>
+                            <em>Brand Touch Point</em><br/>
+                            <em>Style Sheets</em>
                             </p>
                         </div>
                     </motion.div>
@@ -520,10 +475,10 @@ export default function Home(){
                     whileInView={{y:50}}
                     transition={{duration:.5}}
                     >
-                        <img src='./images/expertDes.png' alt='Design'/>
+                        <img src='./images/expertDes.png' alt='UX UI Design'/>
                     </motion.div>
                     <div className='expert_container_home peach2'>
-                        <img src='./images/expertDev.png' alt='Develop'/>
+                        <img src='./images/expertDev.png' alt='Development'/>
                     </div>
                     <motion.div 
                     className='expert_container_home peach3'
@@ -531,45 +486,52 @@ export default function Home(){
                     whileInView={{y:-50}}
                     transition={{duration:.5}}
                     >
-                        <img src='./images/expertBrand.png' alt='Brand'/>
+                        <img src='./images/expertBrand.png' alt='Branding'/>
                     </motion.div>
                 </div>}
                 <p className='home_expertise_des'>
-                    At Trulle, we're passionate about crafting seamless user experiences (UX) and captivating user interfaces (UI) 
-                    that leave a lasting impression. Our expertise spans mobile app development, dynamic website creation, e-commerce platforms, 
-                    and enterprise software solutions. From streamlining business operations with ERP systems to designing custom applications, 
-                    we ensure efficiency and informed decision-making. Our brand design services extend beyond logos, encompassing comprehensive brand guidelines for a consistent visual identity. 
-                    With a focus on expertise, innovation, collaboration, and results, Trulle is your trusted partner in driving digital success. 
+                    At <em>Trulle</em>, we're passionate about crafting seamless user experiences (<em>UX</em>) and captivating user interfaces (<em>UI</em>) 
+                    that leave a lasting impression. Our expertise spans <em>mobile app development</em>, <em>dynamic website creation</em>, <em>e-commerce platforms</em>, 
+                    and <em>enterprise software</em> solutions. From streamlining business operations with <em>ERP</em> systems to designing custom applications, 
+                    we ensure efficiency and informed decision-making. Our <em>brand design</em> services extend beyond <em>logos</em>, encompassing comprehensive <em>brand</em> guidelines for a consistent visual identity. 
+                    With a focus on expertise, innovation, collaboration, and results, <em>Trulle</em> is your trusted partner in driving digital success. 
                     Let's build something amazing together – get in touch with us today!
                 </p>
+                </article>
             </div>
             <div className='service_scroll' onMouseEnter={()=>setFollowerClass('followerDifference big peach')} onMouseLeave={()=>setFollowerClass('follower small peach')}>
                 <div className='slider'>
                     <Marquee 
-                        children={<span className='scroller'>BRAND DESIGN - DEVELOPMENT - ENTERPRISE BUSINESS APPLICATIONS - BRAND DESIGN - DEVELOPMENT - ENTERPRISE BUSINESS APPLICATIONS - BRAND DESIGN - DEVELOPMENT - ENTERPRISE BUSINESS APPLICATIONS</span>} 
+                        children={<span className='scroller'><em>BRAND DESIGN</em> - <em>DEVELOPMENT</em> - <em>ENTERPRISE BUSINESS APPLICATIONS</em> - <em>BRAND DESIGN</em> - <em>DEVELOPMENT</em> - <em>ENTERPRISE BUSINESS APPLICATIONS</em> - <em>BRAND DESIGN</em> - <em>DEVELOPMENT</em> - <em>ENTERPRISE BUSINESS APPLICATIONS</em></span>} 
                         speed={'200000ms'} 
                         type={'text'}/> 
                     <Marquee 
-                        children={<span className='scroller'>BRAND DESIGN - DEVELOPMENT - ENTERPRISE BUSINESS APPLICATIONS - BRAND DESIGN - DEVELOPMENT - ENTERPRISE BUSINESS APPLICATIONS - BRAND DESIGN - DEVELOPMENT - ENTERPRISE BUSINESS APPLICATIONS</span>} 
+                        children={<span className='scroller'><em>BRAND DESIGN</em> - <em>DEVELOPMENT</em> - <em>ENTERPRISE BUSINESS APPLICATIONS</em> - <em>BRAND DESIGN</em> - <em>DEVELOPMENT</em> - <em>ENTERPRISE BUSINESS APPLICATIONS</em> - <em>BRAND DESIGN</em> - <em>DEVELOPMENT</em> - <em>ENTERPRISE BUSINESS APPLICATIONS</em></span>} 
                         speed={'150000ms'} 
                         type={'text'}/>                                
                 </div>
             </div>
             <div id='portfolio' className='home_project'>
-                <h1 className='home_project_title'>OUR PROJECTS</h1>
+                <article>
+                    <header>
+                        <h1 className='home_project_title'>OUR PROJECTS</h1>
+                    </header>
                 <Project 
                     projects={projects}
-                />                
+                />       
+                </article>         
             </div>
             <div className='home_testimonial'>
                 <div className='testrow1'>
-                    <h1 className='home_testimonial_title'>TESTIMONIAL</h1>
+                    <header>
+                        <h1 className='home_testimonial_title'>TESTIMONIAL</h1>
+                    </header>
                     <div className='testimonial_keys'>
                         <div className='home__test_keys' onClick={preHomeTest}>
-                            <img src='./images/left.png'/>
+                            <img src='./images/left.png' alt='trulle'/>
                         </div>
                         <div className='home__test_keys' onClick={nextHomeTest}>
-                            <img src='./images/right.png'/>
+                            <img src='./images/right.png' alt='trulle'/>
                         </div>
                     </div>
                 </div>
@@ -586,27 +548,33 @@ export default function Home(){
                             )
                         })}
                     </div>                    
-                </div>                
+                </div>              
             </div>
             <div id='about' className='home_layer2'>
                 <div className='home_arc_top'>
-                    <img src='./images/top.png'/>
+                    <img src='./images/top.png' alt='trulle'/>
                 </div>
                 <div className='home_workstyle'>
-                    <h1 className='home_workstyle_title'>Our Approach</h1>
+                    <article>
+                        <header>
+                            <h1 className='home_workstyle_title'>Our Approach</h1>
+                        </header>
                     <div className='workStyle_image'>
-                        <img src='./images/homeStyle.svg' alt='Home Style'/>
+                        <img src='./images/homeStyle.svg' alt='Trulle Style'/>
                     </div>
-                    <h2 className='home_brand_title'>Client-Centric Approach</h2>
+                    <header>
+                        <h2 className='home_brand_title'>Client-Centric Approach</h2>
+                    </header>
                     <p className='paragraph'>
-                    "At Trulle, we believe in the power of collaboration and understanding the unique ambitionsdriving each project. 
+                    "At <em>Trulle</em>, we believe in the power of collaboration and understanding the unique ambitionsdriving each project. 
                     We initiate every venture by immersing ourselves in your world—graspingnot just the outlined objectives but diving deeper into your aspirations, 
                     challenges, and broadervision. Through in-depth discussions and meticulous analysis, we dissect the intricacies of yourgoals, 
                     ensuring a thorough understanding of what success truly means to you.This immersive approach allows us to craft strategies that are not just aligned but finelytailored to surpass your expectations. 
                     We amalgamate your aspirations with our expertise,fusing innovative thinking with a strategic mindset to shape a roadmap that leads to unparalleled outcomes. 
-                    Our portfolio of success stories stands as a testament to our unwaveringdedication to delivering nothing short of excellence. 
+                    Our <em>portfolio</em> of success stories stands as a testament to our unwaveringdedication to delivering nothing short of excellence. 
                     Each triumph is a reflection of our commitment to turning your aspirations into a reality that exceeds even the loftiest of goals."
                     </p>
+                    </article>
                 </div>
                 {/* <div className='home_team'>
                     <h1>TEAM</h1>
@@ -647,7 +615,7 @@ export default function Home(){
                     </div>
                 </div> */}
                 <div className='home_arc_bottom'>
-                    <img src='./images/top.png'/>
+                    <img src='./images/top.png'alt='trulle'/>
                 </div>
             </div>
             <div id='contact' className='home_talk'>

@@ -253,6 +253,16 @@
     margin-top: 5rem;
     padding: 5rem 0;
 }
+.home_expertise article{
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+}
+.home_expertise article header{
+    width: 100%;
+}
 .home_expertise .home_expertise_title{
     width: 100%;
     font-family: var(--f1);
@@ -469,11 +479,18 @@
     position: relative;
     /* padding: 2% 25%; */
 
+    
+    
+}
+.home_workstyle article{
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;  
-    
+}
+.home_workstyle article header{
+    width: 100%;
 }
 .home_workstyle_title{
     width: 100%;
